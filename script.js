@@ -1,6 +1,6 @@
-/*document.addEventListener('contextmenu',function(event){
+document.addEventListener('contextmenu',function(event){
     event.preventDefault();
-})*/
+})
 
 /* Changing name */
 var typed = new Typed("#changingtext",{
