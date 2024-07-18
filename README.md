@@ -29,7 +29,7 @@ This is my personal portfolio website where I showcase my work, skills, and expe
 
 ## Contact
 
-Feel free to reach out to me through the contact form on my portfolio or via email at [iamjagadeesan2001@example.com](mailto:your-iamjagadeesan2001@example.com).
+Feel free to reach out to me through the contact form on my portfolio or via email at [iamjagadeesan2001@gmail.com](mailto:your-iamjagadeesan2001@gmail.com).
 
 You can also find me on:
 - [LinkedIn](https://www.linkedin.com/in/iamjagadeesan)
