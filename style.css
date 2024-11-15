@@ -1,5 +1,6 @@
 body{
 	color: white;
+	background-color: black;
 	background-image: linear-gradient(66deg, transparent 0%, transparent 24%,rgba(16,9,255, 0.09) 24%, rgba(16,9,255, 0.09) 80%,transparent 80%, transparent 100%),linear-gradient(153deg, transparent 0%, transparent 29%,rgba(16,9,255, 0.09) 29%, rgba(16,9,255, 0.09) 45%,transparent 45%, transparent 100%),linear-gradient(199deg, transparent 0%, transparent 32%,rgba(16,9,255, 0.09) 32%, rgba(16,9,255, 0.09) 59%,transparent 59%, transparent 100%),linear-gradient(277deg, transparent 0%, transparent 56%,rgba(16,9,255, 0.09) 56%, rgba(16,9,255, 0.09) 57%,transparent 57%, transparent 100%),linear-gradient(90deg, rgb(10,10,10),rgb(10,10,10));
 	background-repeat: no-repeat;
 	background-attachment: fixed;
