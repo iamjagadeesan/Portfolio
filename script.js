@@ -11,7 +11,7 @@ var typed = new Typed("#changingtext",{
 })
 /* toggle button */
 document.addEventListener('DOMContentLoaded', () => {
-    const icon = document.getElementById('toggle_btn');
+    const icon = document.getElementById('menuBar');
     const dropdownMenu = document.getElementById('dropdownmenu');
     const menuItems = document.querySelectorAll('.menu-item');
     const headings = document.querySelectorAll('.headings a');
@@ -21,33 +21,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to remove textglow from all headings and add to the hovered one
     const addTextGlow = (event) => {
-        headings.forEach(heading => heading.classList.remove('textglow'));
+        headings.forEach(heading => {heading.classList.remove('textglow');heading.style.textDecoration='none';});
         event.target.classList.add('textglow');
+        event.target.style.textDecoration = 'underline';
+
     };
 
     // Add event listeners to headings for hover effect
     headings.forEach(heading => {
-        heading.addEventListener('mouseover', addTextGlow);
+        heading.addEventListener('click', addTextGlow);
     });
 
     icon.addEventListener('click', () => {
+        icon.classList.toggle('active');
         if (dropdownMenu.classList.contains('show')) {
             dropdownMenu.classList.remove('show');
-            setTimeout(() => { dropdownMenu.style.display = 'none'; }, 300); // Delay to match the transition
-            icon.innerHTML = '<i class="fa-solid fa-bars"></i>'; // Bar icon
+            dropdownMenu.style.transform = 'translateX(110%)'; 
+            document.body.style.overflowY='auto' // Delay to match the transition
         } else {
-            dropdownMenu.style.display = 'block';
-            setTimeout(() => { dropdownMenu.classList.add('show'); }, 5); // Allow time for display to apply
-            icon.innerHTML = '<i class="fa-solid fa-xmark"></i>'; // X icon
+            dropdownMenu.style.transform = 'translateX(0)';
+            document.body.style.overflowY = 'hidden'
+            dropdownMenu.classList.add('show'); 
         }
     });
 
     // Close the dropdown menu when clicking on a menu item
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
+            document.body.style.overflowY = 'auto';
             dropdownMenu.classList.remove('show');
-            setTimeout(() => { dropdownMenu.style.display = 'none'; }, 300); // Delay to match the transition
-            icon.innerHTML = '<i class="fa-solid fa-bars"></i>'; // Bar icon
+            dropdownMenu.style.transform = 'translateX(110%)';
+            icon.classList.toggle('active');
         });
     });
 });
@@ -56,14 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-
         const targetId = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-            targetElement.scrollIntoView({
+            setTimeout((targetElement)=>{
+                targetElement.scrollIntoView({
                 behavior: 'smooth'
             });
+            },500,targetElement);
         }
     });
 });
@@ -96,13 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.educationboxcontainer ul li');
-
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.1
     };
-
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -110,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 entry.target.classList.remove('in-view');
             }
-        });
+    });
     }, observerOptions);
 
     items.forEach(item => {
