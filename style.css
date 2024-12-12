@@ -1,13 +1,10 @@
 body{
 	margin: 0;
 	color: white;
-	background-color: black;
 	font-family: calibri;
-}
-
-body {
 	background: linear-gradient(-90deg, #18181b, #172554, #0f172a, #831843);
 	background-size: 400% 400%;
+	background-color: black;
 	animation: gradient 10s ease infinite;
 }
 
