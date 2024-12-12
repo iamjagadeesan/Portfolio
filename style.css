@@ -7,7 +7,7 @@ body{
 	color: white;
 	background-color: black;
 	font-family: calibri;
-	background: linear-gradient(-90deg, #18181b, #172554, #0f172a, #064e3b);
+	background: linear-gradient(-90deg, #082f49, #2e1065, #1e1b4b, #4a044e);
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
 }
