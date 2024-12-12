@@ -97,30 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-/* timeline scroll */
-
-document.addEventListener('DOMContentLoaded', function() {
-    const items = document.querySelectorAll('.educationboxcontainer ul li');
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-            } else {
-                entry.target.classList.remove('in-view');
-            }
-    });
-    }, observerOptions);
-
-    items.forEach(item => {
-        observer.observe(item);
-    });
-});
-
 /* certifications swipper */
 
 var swiper = new Swiper('.swiper-container', {
