@@ -1,13 +1,14 @@
 html{
 	background-color: black;
 }
+
 body{
 	margin: 0;
 	color: white;
+	background-color: black;
 	font-family: calibri;
 	background: linear-gradient(-90deg, #18181b, #172554, #0f172a, #831843);
 	background-size: 400% 400%;
-	background-color: black;
 	animation: gradient 10s ease infinite;
 }
 
@@ -34,11 +35,11 @@ a{
 .textglow{
 	text-shadow: 0 0 0px #fff,   
                  0 0 0px #fff, 
-                 0 0 20px #ff00ff,
-                 0 0 30px #ff00ff,
-                 0 0 40px #ff00ff, 
-                 0 0 50px #ff00ff,
-                 0 0 60px #ff00ff; 
+                 0 0 5px #4c1d95,
+                 0 0 10px #4c1d95,
+                 0 0 15px #4c1d95, 
+                 0 0 20px #4c1d95,
+                 0 0 25px #4c1d95; 
 }
 .m-top{
 	margin-top: 2rem;
@@ -206,13 +207,13 @@ a{
 	font-size: 3rem;
 	font-style : italic;
     font-weight: bold;
-    background: linear-gradient(to right, violet, darkviolet);
+    background: linear-gradient(to right, #c026d3, #7c3aed);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 #changingtext{
 	font-size: 2rem;
-	color: darkviolet;
+	color: #7c3aed;
 	padding-left: 10px;
 	display:inline-flex;
 	flex-direction: row;
@@ -244,11 +245,8 @@ a{
 }
 .educationbox h1{
 	font-style: italic;
-	transition: transform 0.2s ease;
 }
-.educationbox h1:hover{
-	transform: scale(1.2);
-}
+
 .educationboxcontainer{
 	width: 70%;
 	height: auto;
@@ -294,6 +292,7 @@ a{
 	width: 50%;
 	height: auto;
 	padding: 15px 20px;
+	border: solid 1px transparent;
 	border-radius: 8px;
 	background-color: rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(1px);
@@ -301,16 +300,11 @@ a{
 	position: relative;
 	margin-bottom: 30px;
 	z-index: 99;
-	opacity: 0;
-	transition: opacity 2s linear, transform 2s linear, transform 0.3s ease-in-out; /* Add transition for hover effect */
+	transition: all 0.3s ease-in-out; /* Add transition for hover effect */
 }
 
-.educationboxcontainer ul li.in-view {
-	opacity: 1;
-}
-
-.educationboxcontainer ul li:hover {
-	transform: scale(1.2); /* Scale on hover */
+.educationboxcontainer ul li:hover{
+	border: solid 1px white;
 }
 
 .educationboxcontainer ul::after {
@@ -412,6 +406,12 @@ ul li p {
 
 .skillh{
 	font-style: italic;
+}
+
+.st{
+	background: linear-gradient(to bottom, white, darkviolet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .sicon{
@@ -519,7 +519,9 @@ ul li p {
 }
 .project .projectcontainer .projectcontent h2{
     text-align: center;
-    color: violet;
+    background: linear-gradient(to bottom, white, darkviolet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .projectcontainer {
     width: 100%;
@@ -631,11 +633,11 @@ footer a:hover{
 	transform: scale(1.2);
     text-shadow: 0 0 0px #fff,   
                  0 0 0px #fff, 
-                 0 0 20px #ff00ff,
-                 0 0 30px #ff00ff,
-                 0 0 40px #ff00ff, 
-                 0 0 50px #ff00ff,
-                 0 0 60px #ff00ff; 
+                 0 0 5px #4c1d95,
+                 0 0 10px #4c1d95,
+                 0 0 15px #4c1d95, 
+                 0 0 20px #4c1d95,
+                 0 0 25px #4c1d95; 
  }
  footer{
     display: flex;
