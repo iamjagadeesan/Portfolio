@@ -6,11 +6,11 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-		<link rel="icon" href="source/logo.png" type="image/png">
+		<link rel="icon" href="logo.png" type="image/png">
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<div class="top scroll">
+	<div class="top scroll">
     <div class="headings">
         <a href="#top1" class="textglow" id="home">Home</a>
         <a href="#top2" id="education">Education</a>
@@ -19,19 +19,23 @@
         <a href="#top5" id="certifications">Certifications</a>
         <a href="#top6" id="contact">Contact</a>
     </div>
-    <div class="toggle_btn nonevisible" id="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+    <div class="menu-bar" id="menuBar">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
 </div>
-<div class="dropdownmenu nonevisible" id="dropdownmenu">
+<div class="dropdownmenu" id="dropdownmenu">
     <a href="#top1" class="menu-item" id="dropdown-home">Home</a>
     <a href="#top2" class="menu-item" id="dropdown-education">Education</a>
     <a href="#top3" class="menu-item" id="dropdown-skills">Skills</a>
     <a href="#top4" class="menu-item" id="dropdown-projects">Projects</a>
     <a href="#top5" class="menu-item" id="dropdown-certifications">Certifications</a>
     <a href="#top6" class="menu-item" id="dropdown-contact">Contact</a>
-</div><!--h2 class="textglow" style="padding:1rem" id="top1">Portfolio</h2---><img src="source/jdlogo.gif" class="logo" id="top1">
+</div><!--h2 class="textglow" style="padding:1rem" id="top1">Portfolio</h2---><img src="jdlogo.gif" class="logo" id="top1">
 		<div class="imageandcontent scroll">
-			<div class="image"><img src="source/pic.png" class="myphoto"> </div>
-			<div id="aboutcontent"><h1>Hi, I'm<br><span id="name">JAGADEESAN</span><br class="breakline"><span id="changingtext"></span></h1><p>Passionate and dedicated MCA graduate with a strong foundation in software development and database management. Seeking an entry-level position in a dynamic organization to utilize my skills and contribute to the growth of the company while gaining valuable industry experience.</p></div>
+			<div class="image"><img src="pic.png" class="myphoto"> </div>
+			<div id="aboutcontent"><h1>Hi, I'm<br><span id="name">JAGADEESAN</span><br class="breakline"><span id="changingtext"></span></h1><p>a recent MCA graduate with a robust foundation in coding, programming, and backend software development. My journey through the realm of technology has been driven by a relentless curiosity and passion for creating innovative solutions.</p></div>
 		</div><span id="top2"></span>
 		<div class="educationbox scroll" id="educationbox">
 			<h1 class="education textglow">EDUCATION</h1>
@@ -40,14 +44,14 @@
 					<li>
 						<h3>Master of Computer Applications</h3>
 						<p>SRM insitute of science and technology, Tiruchirappalli campus</p>
-						<p>CGPA: 8.56</p>
+						<p>CGPA: 8.3/10</p>
 						<span class="circle"></span>
 						<span class="Year">2024</span>
 					</li>
 					<li>
 						<h3>Bachelor of Computer Science</h3>
 						<p>Annai Vailankanni arts and science college, Thanjavur</p>
-						<p>Percentage: 80.37%</p>
+						<p>Percentage: 75.25%</p>
 						<span class="circle"></span>
 						<span class="Year">2022</span>
 					</li>
@@ -72,7 +76,7 @@
 		<h1 class=" skillh textglow m-top scroll" style="text-align:center;" id="Skills">SKILLS</h1><br>
 		<div class="skill scroll">
     <br>
-    <h3 style="text-align: center;" class="textglow">PROGRAMMING LANGUAGES</h3><br>
+    <h3 style="text-align: center;color: violet;">PROGRAMMING LANGUAGES</h3><br>
     <div class="skills">
         <div class="skillscontent">
             <span class="icon">
@@ -99,11 +103,17 @@
         </div>
     </div><br>
 
-    <h3 style="text-align:center;" class="textglow">WEB DEVELOPMENT</h3><br>
+    <h3 style="text-align:center;color: violet;">WEB DEVELOPMENT</h3><br>
     <div class="skills">
         <div class="skillscontent">
             <i class="fa-brands fa-react sicon" style="color: #74C0FC;"></i>
             <h3 class="icontitle">React</h3>
+        </div>
+        <div class="skillscontent">
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 73.29"
+            style='height: 50px;padding-bottom :1rem;'
+            ><defs><style>.cls-1{fill:#06b6d4;fill-rule:evenodd;}</style></defs><title>tailwind-css</title><path class="cls-1" d="M61.44,0Q36.87,0,30.72,24.43q9.22-12.21,21.5-9.16c4.68,1.16,8,4.53,11.72,8.26,6,6.08,13,13.11,28.22,13.11q24.57,0,30.72-24.43-9.21,12.22-21.5,9.16c-4.68-1.16-8-4.53-11.72-8.26C83.64,7,76.67,0,61.44,0ZM30.72,36.64Q6.15,36.64,0,61.07q9.23-12.21,21.5-9.16c4.68,1.16,8,4.53,11.72,8.27,6,6.07,13,13.11,28.22,13.11q24.57,0,30.72-24.43Q82.95,61.07,70.66,58c-4.68-1.16-8-4.53-11.72-8.26-6-6.08-13-13.12-28.22-13.12Z"/></svg>
+            <h3 class="icontitle">Tailwind</h3>
         </div>
         <div class="skillscontent">
             <i class="fa-brands fa-html5 sicon" style="color:orangered;"></i>
@@ -123,7 +133,7 @@
         </div>
     </div><br>
 
-    <h3 style="text-align:center;" class="textglow">FOUNDATIONAL CODING</h3><br>
+    <h3 style="text-align:center;color:violet;">FOUNDATIONAL CODING</h3><br>
     <div class="skills" style="justify-content: center;">
         <div class="skillscontent">
             <i class="fa-solid fa-share-nodes sicon" style="color:green"></i>
@@ -142,26 +152,45 @@
     <div class="project scroll" id="projects">
             <h1 class="textglow">PROJECTS</h1>
             <div class="projectcontainer">
+
                     <div class="projectcontent">
-                        <h2>IMAGE IMMUNIZER</h2><br>
+                        <h2>MoviesBuff</h2><br>
+                        <p>MoviesBuff is a user-friendly application for movie enthusiasts, where users can explore details of their favorite movies, get recommendations, and view trending content. Built with JavaScript and React, it aims to be an all-in-one platform for movie lovers.</p>
+                        <span style="font-size: 2rem;padding:1rem;"><i class="fa-solid fa-clapperboard"></i> <i class="fa-brands fa-react"></i> <i class="fa-brands fa-css3-alt"></i> <i class="fa-solid fa-database"></i></span>
+                        <a href="https://iamjagadeesan.github.io/MoviesBuff/" target="blank" style="font-weight: bold;color: blue;background-color: white;border-radius:8px;padding: 4px;">Link <i class="fa-solid fa-link"></i></a>
+                    </div>
+                    <div class="projectcontent">
+                        <h2>Weather Check</h2><br>
+                        <p>WeatherCheck is a weather application built with React. It provides real-time weather information for any city worldwide, displaying temperature, humidity, wind speed, and more. This app uses animations and transitions to create an engaging user experience.</p>
+                        <span style="font-size: 2rem;padding:1rem;"><i class="fa-solid fa-cloud"></i> <i class="fa-brands fa-react"></i> <i class="fa-brands fa-css3-alt"></i></span>
+                        <a href="https://iamjagadeesan.github.io/Weathercheck/" target="blank" style="font-weight: bold;color: blue;background-color: white;border-radius:8px;padding: 4px;">Link <i class="fa-solid fa-link"></i></a>
+                    </div>
+                    <div class="projectcontent">
+                        <h2>Todo List</h2><br>
+                        <p>A simple and efficient To-Do List app built with React. This app helps users manage their tasks by adding, marking, and removing them easily.</p>
+                        <span style="font-size: 2rem;padding:1rem;"><i class="fa-solid fa-check"></i> <i class="fa-brands fa-react"></i> <i class="fa-brands fa-css3-alt"></i> <i class="fa-solid fa-database"></i></span>
+                        <a href="https://iamjagadeesan.github.io/Todolist/" target="blank" style="font-weight: bold;color: blue;background-color: white;border-radius:8px;padding: 4px;">Link <i class="fa-solid fa-link"></i></a>
+                    </div>
+                    <div class="projectcontent">
+                        <h2>Image Immunizer</h2><br>
                         <p>Image Immunizer integrates a Vaccinator and an Invertible Neural Network to enhance digital image security and privacy. It focuses on image tamper localization, allowing for precise detection of alterations. The system also enables self-recovery, automatically restoring tampered sections. Additionally, it supports lossless restoration, ensuring the original image quality is preserved. Together, these features significantly improve the integrity and reliability of digital images.</p>
                         <span style="font-size: 2rem;padding:1rem;"><i class="fa-brands fa-python"></i> <i class="fa-solid fa-share-nodes"></i> <i class="fa-solid fa-gears"></i> <i class="fa-solid fa-database"></i> <i class="fa-brands fa-facebook-f"></i> <i class="fa-brands fa-instagram"></i></span>
-                        <a href="#" style="color: blue;background-color: white;border-radius:8px;padding: 2px;">View more</a>
+                        <a href="#" style="font-weight: bold;color: blue;background-color: white;border-radius:8px;padding: 4px;">Link <i class="fa-solid fa-link"></i></a>
                     </div>
-                    <br class="breakline1">
                     <div class="projectcontent">
-                        <h2>WIRED CRIME INVERSTIGATION</h2><br>
+                        <h2>Wired Crime Inverstigation</h2><br>
                         <p>Wired Crime Investigation's website simplifies the process of reporting crimes and seeking law enforcement assistance. It features a user-friendly platform designed for ease of use. This makes it accessible for individuals to report incidents efficiently. The site ensures a streamlined experience for users. Overall, it enhances the connection between the public and law enforcement agencies.</p>
                         <span style="font-size: 2rem;padding:1rem;"><i class="fa-brands fa-html5"></i>  <i class="fa-brands fa-css3-alt"></i>  <i class="fa-brands fa-js"></i>  <i class="fa-solid fa-database"></i> <i class="fa-solid fa-handcuffs"></i></span>
-                        <a href="#" style="color: blue;background-color: white;border-radius:8px;padding: 2px;">View more</a>
+                        <a href="#" style="font-weight: bold;color: blue;background-color: white;border-radius:8px;padding: 4px;">Link <i class="fa-solid fa-link"></i></a>
                     </div>
+                    
             </div>
     </div><br><br>
 
     <span id="top5"></span>
     <h1 id="Certifications" class="textglow m-top scroll" style="text-align:center;">CERTIFICATIONS</h1>
     <div class="certificationbox">
-         <div class="swiper-container">
+                  <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" >
                     <img src="certifications\cintermidiate.png" class="cimage">
@@ -172,13 +201,13 @@
                 <div class="swiper-slide" >
                     <img src="certifications\csharpintermidiate.png" class="cimage">
                 </div>
-		<div class="swiper-slide" >
+        <div class="swiper-slide" >
                     <img src="certifications\javabyscaler.png" class="cimage">
                 </div>
-		<div class="swiper-slide" >
+        <div class="swiper-slide" >
                     <img src="certifications\javascriptintermidiate.jpg" class="cimage">
                 </div>
-		<div class="swiper-slide" >
+        <div class="swiper-slide" >
                     <img src="certifications\javascriptbyscaler.png" class="cimage">
                 </div>
                 <div class="swiper-slide" >
@@ -208,7 +237,7 @@
             <a href="https://www.linkedin.com/in/iamjagadeesan/"><i class="fa-brands fa-linkedin"></i> Linkedin</a>
             <a href="https://github.com/iamjagadeesan/"><i class="fa-brands fa-github"></i> Github</a>
         </footer>
-        <a href="source/Jagadeesan Resume.pdf" download="Jagadeesan Resume" class="btn--download" style="text-align:center;display: flex;justify-content: center;"><strong>Download Resume</strong></a><br><br>
+        <a href="Jagadeesan Resume.pdf" download="Jagadeesan Resume" class="btn--download" style="text-align:center;display: flex;justify-content: center;"><strong>Download Resume</strong></a><br><br>
         <p style="text-align:center;">&copy;2024 Portfolio. Designed by Jagadeesan</p>
     </div>
 
