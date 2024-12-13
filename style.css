@@ -24,7 +24,6 @@ body{
 	}
 }
 
-
 a{
 	text-decoration: none;
 	color: white;
@@ -76,16 +75,6 @@ a{
 	font-style: italic;
     font-size: 1.2rem;
     transition: transform 0.2s ease;
-}
-
-.headings a:hover {
-    text-shadow: 0 0 0px #fff,   
-                 0 0 0px #fff, 
-                 0 0 20px #ff00ff,
-                 0 0 30px #ff00ff,
-                 0 0 40px #ff00ff, 
-                 0 0 50px #ff00ff,
-                 0 0 60px #ff00ff; 
 }
 
 .menu-bar {
@@ -163,8 +152,7 @@ a{
 }
 
 .dropdownmenu a:hover {
-    transform: scale(1.4);
-    font-weight: bold;
+    color: darkviolet;
 }
 .imageandcontent{
 	margin-top: 2%;
@@ -240,7 +228,7 @@ a{
 	font-family: candara;
 	font-size: 2rem;
 	position: relative;
-	margin-bottom: 100px;
+	margin-bottom: 4rem;
 	cursor: pointer;
 }
 .educationbox h1{
@@ -631,13 +619,7 @@ footer a{
 }
 footer a:hover{
 	transform: scale(1.2);
-    text-shadow: 0 0 0px #fff,   
-                 0 0 0px #fff, 
-                 0 0 5px #4c1d95,
-                 0 0 10px #4c1d95,
-                 0 0 15px #4c1d95, 
-                 0 0 20px #4c1d95,
-                 0 0 25px #4c1d95; 
+    color: darkviolet;
  }
  footer{
     display: flex;
@@ -657,7 +639,7 @@ footer a:hover{
     padding: 7px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 .btn--download:hover{
     background-color: white;
