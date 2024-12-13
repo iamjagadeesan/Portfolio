@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add event listeners to headings for hover effect
     headings.forEach(heading => {
-        heading.addEventListener('click', addTextGlow);
+        heading.addEventListener('click', addTextGlow(e));
     });
 
     icon.addEventListener('click', () => {
