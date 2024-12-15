@@ -624,6 +624,7 @@ footer a:hover{
  }
 
 .btn--download{
+    font-size: 2rem;
     border-radius: 1rem;
     border: solid 2.5px darkviolet;
     display: inline-block;
