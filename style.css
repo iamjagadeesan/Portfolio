@@ -336,6 +336,8 @@ ul li:nth-child(even) .circle {
 	left: -30px;
 }
 ul li .Year {
+	font-style: italic;
+	font-weight: bold;
 	font-size: 1.5rem;
 	position: absolute;
 	width: 130px;
@@ -704,7 +706,7 @@ footer a:hover{
 }
 @media(max-width:500px){
 	body{
-	background-size: 200% 200%;
+	background-size: 500% 500%;
 	}
 	.menu-bar{
 		display: flex;
