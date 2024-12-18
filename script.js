@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Disable context menu
-    document.addEventListener('contextmenu', (event) => event.preventDefault());
+    //document.addEventListener('contextmenu', (event) => event.preventDefault());
 
     // Typed.js effect
     new Typed("#changingtext", {
