@@ -11,6 +11,7 @@ body {
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
 	font-family: "Questrial", serif;
+	line-height: 1.5;
 }
 
 @keyframes gradient {
@@ -455,6 +456,9 @@ ul li p {
     justify-content: center;
     text-align: center;
     transition: transform 0.3s ease;
+}
+.skillscontent h3{
+	font-weight: 300;
 }
 .skillscontent:nth-child(odd) {
     animation: down 5s ease-in-out infinite;
