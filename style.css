@@ -340,7 +340,7 @@ ul li .Year {
 	position: absolute;
 	width: 130px;
 	height: 33px;
-	background-color: darkviolet;
+	background: linear-gradient(to right, #c026d3, #7c3aed);
 	border-radius: 15px;
 	top: -45px;
 	display: grid;
@@ -703,6 +703,9 @@ footer a:hover{
     }
 }
 @media(max-width:500px){
+	body{
+	background-size: 200% 200%;
+	}
 	.menu-bar{
 		display: flex;
 	}
