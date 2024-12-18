@@ -1,8 +1,8 @@
-html{
+html {
 	background-color: black;
 }
 
-body{
+body {
 	margin: 0;
 	color: white;
 	background-color: black;
@@ -25,99 +25,102 @@ body{
 	}
 }
 
-a{
+a {
 	text-decoration: none;
 	color: white;
 }
-.logo{
+
+.logo {
 	height: 50px;
 }
-.m-top{
+
+.m-top {
 	margin-top: 2rem;
 }
+
 .top {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
 }
 
 .portfolio {
-    font-weight: bold;
-    font-size: 1.5rem;
-    opacity: 1;
-    padding: 2rem;
+	font-weight: bold;
+	font-size: 1.5rem;
+	opacity: 1;
+	padding: 2rem;
 }
 
 .headings {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 50%;
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(25px);
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border-bottom: solid 1px white;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 50%;
+	background-color: rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(25px);
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	border-bottom: solid 1px white;
 }
 
 .headings a {
 	font-style: italic;
-    font-size: 1.2rem;
-    transition: transform 0.2s ease;
+	font-size: 1.2rem;
+	transition: transform 0.2s ease;
 }
 
 .menu-bar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 25px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-  display: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 30px;
+	height: 25px;
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out;
+	display: none;
 }
 
 .line {
-  height: 3px;
-  width: 100%;
-  background-color: white;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
- 
+	height: 3px;
+	width: 100%;
+	background-color: white;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
 }
 
 .menu-bar.active .line:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 7px);
+	transform: rotate(45deg) translate(8px, 7px);
 }
 
 .menu-bar.active .line:nth-child(2) {
-  opacity: 0;
+	opacity: 0;
 }
 
 .menu-bar.active .line:nth-child(3) {
-  transform: rotate(-45deg) translate(8px, -8px);
+	transform: rotate(-45deg) translate(8px, -8px);
 }
+
 .dropdownmenu {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-  margin: 1.2rem 1rem 1rem 0.7rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(25px);
-  padding: 1rem;
-  border-radius: 1rem;
-  border: solid 1px white;
-  z-index: 1;
-  transform: translateX(110%);
-  transition: all 0.5s ease-in-out;
-  position: fixed;
-  top: 5%;
-  width: 95%;
-  height: 90%;
+	margin: 1.2rem 1rem 1rem 0.7rem;
+	background-color: rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(25px);
+	padding: 1rem;
+	border-radius: 1rem;
+	border: solid 1px white;
+	z-index: 1;
+	transform: translateX(110%);
+	transition: all 0.5s ease-in-out;
+	position: fixed;
+	top: 5%;
+	width: 95%;
+	height: 90%;
 }
 
 .dropdownmenu .show {
@@ -125,19 +128,22 @@ a{
 }
 
 .dropdownmenu a {
-    font-size: 2rem;
-    color: white;
-    font-weight: 300;
-    display: block;
-    align-items: center;
-    justify-content: space-around;
-    transition: transform 0.2s ease;
-    text-align: center;
+	font-size: 2rem;
+	color: white;
+	font-weight: 300;
+	display: block;
+	align-items: center;
+	justify-content: space-around;
+	transition: transform 0.2s ease;
+	text-align: center;
 }
 
 .dropdownmenu a:hover {
-    color: darkviolet;
+	color: darkviolet;
 }
+
+/* Additional sections follow a similar pattern */
+
 .imageandcontent{
 	margin-top: 2%;
 	display: flex;
