@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownMenu.style.transform = 'translateX(110%)';
             document.body.style.overflowY = 'auto';
         } else {
-            dropdownMenu.style.transform = 'translateX(-5%)';
+            dropdownMenu.style.transform = 'translateX(-1%)';
             document.body.style.overflowY = 'hidden';
             dropdownMenu.classList.add('show');
         }
