@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 head.style.textDecoration = 'none';
             });
             event.target.style.textDecoration = 'underline';
+            event.target.style.textUnderlineOffset = '8px';
         });
     });
 
@@ -63,25 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Intersection Observer for animations
-    const sections = document.querySelectorAll('div');
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach((section) => observer.observe(section));
 
     // Swiper.js for carousel
     new Swiper('.swiper-container', {
@@ -101,3 +83,59 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 });
+
+
+const container = document.querySelector('.educationboxcontainer ul');
+const elements = container.children; // Select all child elements
+
+window.addEventListener('scroll', () => {
+  const windowHeight = window.innerHeight;
+
+  Array.from(elements).forEach((element, index) => {
+    const rect = element.getBoundingClientRect();
+
+    if (rect.top < windowHeight) {
+      // Apply different animations for odd and even children
+      if (index % 2 === 0) {
+        // Even :nth-child - from left to center
+        element.style.transform = window.innerWidth > 780 ? "translateX(-30px)" : "translateX(-11px)";
+        element.style.opacity = 1;
+        element.style.transition = "all 0.6s ease-in-out";
+      } else {
+        // Odd :nth-child - from right to center
+        element.style.transform = window.innerWidth > 780 ? "translateX(30px)" : "translateX(-11px)";
+        element.style.opacity = 1;
+        element.style.transition = "all 0.6s ease-in-out";
+      }
+    } else {
+      // Reset position if out of viewport
+      if (index % 2 === 0) {
+        element.style.transform = window.innerWidth > 780 ? "translateX(-50%)" : "translateX(50%)"; // Reset to left
+        element.style.opacity = 0;
+      } else {
+        element.style.transform = "translateX(50%)"; // Reset to right
+        element.style.opacity = 0;
+      }
+    }
+  });
+});
+
+
+    const sections = document.querySelectorAll('.Scroll');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            } else {
+                entry.target.classList.remove('animate');
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
