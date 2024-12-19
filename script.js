@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Disable context menu
-    //document.addEventListener('contextmenu', (event) => event.preventDefault());
+    // Disable context menu (optional)
+    // document.addEventListener('contextmenu', (event) => event.preventDefault());
 
     // Typed.js effect
-    new Typed("#changingtext", {
-        strings: ["Learner", "Programmer", "Designer", "Developer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
+    if (document.getElementById('changingtext')) {
+        new Typed("#changingtext", {
+            strings: ["Learner", "Programmer", "Designer", "Developer"],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        });
+    }
 
     // Toggle button and dropdown menu
     const icon = document.getElementById('menuBar');
@@ -27,27 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    icon.addEventListener('click', () => {
-        icon.classList.toggle('active');
-        if (dropdownMenu.classList.contains('show')) {
-            dropdownMenu.classList.remove('show');
-            dropdownMenu.style.transform = 'translateX(110%)';
-            document.body.style.overflowY = 'auto';
-        } else {
-            dropdownMenu.style.transform = 'translateX(0%)';
-            document.body.style.overflowY = 'hidden';
-            dropdownMenu.classList.add('show');
-        }
-    });
-
-    menuItems.forEach((item) => {
-        item.addEventListener('click', () => {
-            document.body.style.overflowY = 'auto';
-            dropdownMenu.classList.remove('show');
-            dropdownMenu.style.transform = 'translateX(110%)';
+    if (icon && dropdownMenu) {
+        icon.addEventListener('click', () => {
             icon.classList.toggle('active');
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+                dropdownMenu.style.transform = 'translateX(110%)';
+                document.body.style.overflowY = 'auto';
+            } else {
+                dropdownMenu.style.transform = 'translateX(0%)';
+                document.body.style.overflowY = 'hidden';
+                dropdownMenu.classList.add('show');
+            }
         });
-    });
+
+        menuItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                document.body.style.overflowY = 'auto';
+                dropdownMenu.classList.remove('show');
+                dropdownMenu.style.transform = 'translateX(110%)';
+                icon.classList.toggle('active');
+            });
+        });
+    }
 
     // Smooth scroll navigation
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -57,85 +61,85 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
-                setTimeout((targetElement) => {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }, 500, targetElement);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
-
 
     // Swiper.js for carousel
-    new Swiper('.swiper-container', {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 4,
-            slideShadows: true,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-        },
-    });
-});
-
-
-const container = document.querySelector('.educationboxcontainer ul');
-const elements = container.children; // Select all child elements
-
-window.addEventListener('scroll', () => {
-  const windowHeight = window.innerHeight;
-
-  Array.from(elements).forEach((element, index) => {
-    const rect = element.getBoundingClientRect();
-
-    if (rect.top < windowHeight) {
-      // Apply different animations for odd and even children
-      if (index % 2 === 0) {
-        // Even :nth-child - from left to center
-        element.style.transform = window.innerWidth > 780 ? "translateX(-30px)" : "translateX(-11px)";
-        element.style.opacity = 1;
-        element.style.transition = "all 0.6s ease-in-out";
-      } else {
-        // Odd :nth-child - from right to center
-        element.style.transform = window.innerWidth > 780 ? "translateX(30px)" : "translateX(-11px)";
-        element.style.opacity = 1;
-        element.style.transition = "all 0.6s ease-in-out";
-      }
-    } else {
-      // Reset position if out of viewport
-      if (index % 2 === 0) {
-        element.style.transform = window.innerWidth > 780 ? "translateX(-50%)" : "translateX(50%)"; // Reset to left
-        element.style.opacity = 0;
-      } else {
-        element.style.transform = "translateX(50%)"; // Reset to right
-        element.style.opacity = 0;
-      }
-    }
-  });
-});
-
-
-    const sections = document.querySelectorAll('.Scroll');
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            } else {
-                entry.target.classList.remove('animate');
-            }
+    if (document.querySelector('.swiper-container')) {
+        new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 4,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
         });
-    }, observerOptions);
+    }
 
-    sections.forEach((section) => observer.observe(section));
+    // Animate list items in .educationboxcontainer
+    const container = document.querySelector('.educationboxcontainer ul');
+    if (container) {
+        const elements = container.children;
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+
+            Array.from(elements).forEach((element, index) => {
+                const rect = element.getBoundingClientRect();
+
+                if (rect.top < windowHeight) {
+                    // Apply different animations for odd and even children
+                    if (index % 2 === 0) {
+                        // Even :nth-child - from left to center
+                        element.style.transform = window.innerWidth > 780 ? "translateX(-30px)" : "translateX(-11px)";
+                    } else {
+                        // Odd :nth-child - from right to center
+                        element.style.transform = window.innerWidth > 780 ? "translateX(30px)" : "translateX(-11px)";
+                    }
+                    element.style.opacity = 1;
+                    element.style.transition = "all 0.6s ease-in-out";
+                } else {
+                    // Reset position if out of viewport
+                    if (index % 2 === 0) {
+                        element.style.transform = window.innerWidth > 780 ? "translateX(-50%)" : "translateX(50%)";
+                    } else {
+                        element.style.transform = "translateX(50%)";
+                    }
+                    element.style.opacity = 0;
+                }
+            });
+        });
+    }
+
+    // Intersection Observer for .Scroll sections
+    const sections = document.querySelectorAll('.Scroll');
+    if (sections.length > 0) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach((section) => observer.observe(section));
+    }
+});
