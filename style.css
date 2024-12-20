@@ -26,6 +26,17 @@ body{
 	}
 }
 
+@keyframes appearRight {
+	0% {
+		opacity: 0;
+		transform: translateX(-150%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
 @keyframes appearLeft {
 	0% {
 		opacity: 0;
@@ -112,7 +123,7 @@ a{
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   display: none;
-   animation: appearLeft .5s linear forwards;
+   animation: appearRight 1s linear forwards;
 }
 
 .line {
@@ -136,7 +147,7 @@ a{
 }
 
 .menu-bar.active .line:nth-child(1) {
-  transform: rotate(-45deg) translateY(0) translateX(-7px);
+  transform: rotate(-45deg) translateY(0px) translateX(-8px);
   width: 50%;
 }
 
@@ -146,7 +157,7 @@ a{
 }
 
 .menu-bar.active .line:nth-child(3) {
-  transform: rotate(-45deg) translateY(-16px) translateX(-9px);
+  transform: rotate(-45deg) translateY(-16px) translateX(-8px);
   width: 50%;
 }
 .dropdownmenu {
@@ -175,7 +186,9 @@ a{
 
 .dropdownmenu a {
     font-size: 2rem;
-    color: white;
+    background: linear-gradient(to bottom, white, white,white,violet,violet,violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 300;
     display: block;
     align-items: center;
@@ -185,7 +198,7 @@ a{
 }
 
 .dropdownmenu a:hover {
-    color: darkviolet;
+    color: white;
 }
 .imageandcontent{
 	margin-top: 2%;
@@ -634,7 +647,9 @@ ul li p {
 
 footer a{
 	text-decoration: none;
-	color: white;
+	background: linear-gradient(to bottom, white, white,white,violet,violet,violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     padding: 1rem;
     flex-grow: 1;
     flex-basis: 200;
@@ -644,7 +659,7 @@ footer a{
 }
 footer a:hover{
 	transform: scale(1.2);
-    color: darkviolet;
+    color: white;
  }
  footer{
     display: flex;
