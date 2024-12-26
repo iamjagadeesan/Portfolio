@@ -1,15 +1,14 @@
 html{
 	background-color: black;
+	font-family: calibri;
+	background: linear-gradient(-90deg, #082f49, #2e1065, #1e1b4b, #4a044e);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
 }
 
 body{
 	margin: 0;
 	color: white;
-	background-color: black;
-	font-family: calibri;
-	background: linear-gradient(-90deg, #082f49, #2e1065, #1e1b4b, #4a044e);
-	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
 	font-family: "Questrial", serif;
 	line-height: 1.5;
 }
