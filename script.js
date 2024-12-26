@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(()=>{
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
-            }},500);
+            }},300);
         });
     });
 
