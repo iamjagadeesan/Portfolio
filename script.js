@@ -59,10 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-
+            setTimeout(()=>{
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
+            }},500);
         });
     });
 
