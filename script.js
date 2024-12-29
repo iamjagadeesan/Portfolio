@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typed.js effect
     if (document.getElementById('changingtext')) {
         new Typed("#changingtext", {
-            strings: ["Learner", "Programmer", "Designer", "Developer"],
+            strings: ["Tech Enthusiast", "Future Coder", "Innovation Seeker", "Growth Seeker"],
             typeSpeed: 100,
             backSpeed: 60,
             loop: true
