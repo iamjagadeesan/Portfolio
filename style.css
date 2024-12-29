@@ -234,7 +234,7 @@ a{
 	margin-left: 15px ;
 	justify-content: center;
 	align-content: center;
-	width: 40%;
+	width: 45%;
 	animation: appearLeft 1s linear forwards;
 }
 #name{
@@ -245,7 +245,7 @@ a{
     -webkit-text-fill-color: transparent;
 }
 #changingtext{
-	font-size: 2rem;
+	font-size: 1.8rem;
 	color: #7c3aed;
 	padding-left: 10px;
 	display:inline-flex;
