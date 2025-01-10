@@ -180,7 +180,7 @@ a{
 }
 
 .dropdownmenu .show {
-	transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.5s ease-in;
 }
 
 .dropdownmenu a {
@@ -372,22 +372,16 @@ a{
 	margin-bottom: 0;
 }
 .educationboxcontainer ul li .circle {
+	background: linear-gradient(to bottom, whitesmoke, gray);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 	position: absolute;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background-color: #e100ff7a;
+	font-size: 1.5rem;
 	top: 0;
 	display: grid;
 	place-items: center;
 }
-.circle::after{
-	content: ' ';
-	width: 12px;
-	height: 12px;
-	background-color: #7f00ff;
-	border-radius: 50%;
-}
+
 ul li:nth-child(odd) .circle {
 	transform: translate(50%, -50%);
 	right: -30px;
@@ -410,6 +404,7 @@ ul li .Year {
 	color: #fff;
 	box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.318);
 }
+
 .educationboxcontainer ul li:nth-child(odd) {
 	float: left;
 	clear: right;
@@ -745,7 +740,8 @@ footer a:hover{
     }
     .projectcontent{
         width: 100%;
-    }
+  	max-height: 100%;
+  }
     .breakline1{
         display: block;
     }
@@ -809,6 +805,9 @@ footer a:hover{
 	.swiper-container{
     width:45%;
 	}
+	.projectcontent {
+  	max-height: 100%;
+  }
 }
 @media only screen and (min-width:798px) and (max-width: 1100px) {
 	.educationboxcontainer{
