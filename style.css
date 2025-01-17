@@ -766,6 +766,7 @@ footer a:hover{
 	}
 	.educationboxcontainer{
 		width: 80%;
+		margin-left: 5%;
 	}
 	.educationboxcontainer ul::after{
 		left: -20px;
