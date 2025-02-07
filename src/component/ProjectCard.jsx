@@ -15,7 +15,7 @@ function ProjectCard({
 }) {
   console.log(toggle);
   return (  // Added return statement
-    <div className={` ${toggle?'drop-shadow-[0_0_10px_rgba(139,92,246,0.3)] lg:drop-shadow-[0_0_30px_rgba(139,92,246,0.3)]':'drop-shadow-[0_0_10px_rgba(139,92,246,0.3)] lg:drop-shadow-[0_0_30px_rgba(139,92,246,0.8)]'} relative my-12 h-4/5 md:h-[50vh] lg:h-[70vh] w-[90vw] md:w-3/4 lg:w-2/3 bg-[conic-gradient(transparent,transparent,#5B21B6,transparent,transparent,#5B21B6,#5B21B6)] rounded-2xl p-[1px] lg:p-[2px]`}>
+    <div className={` ${toggle?'drop-shadow-[0_0_10px_rgba(139,92,246,0.3)] lg:drop-shadow-[0_0_30px_rgba(139,92,246,0.3)]':'drop-shadow-[0_0_10px_rgba(139,92,246,0.3)] lg:drop-shadow-[0_0_30px_rgba(139,92,246,0.8)]'} relative my-12 h-4/5 md:h-[50vh] lg:h-[70vh] w-[90vw] md:w-3/4 lg:w-2/3 bg-[conic-gradient(transparent,transparent,#5B21B6,transparent,transparent,#5B21B6,#5B21B6)] rounded-2xl p-[1px] lg:p-[2px] `}>
       <h1 className="absolute font-thin text-violet-700 font-display text-xl md:text-2xl lg:text-4xl text-center -translate-y-5 md:-translate-y-6 lg:-translate-y-8 ml-[50%]">
         {title}
       </h1>
@@ -62,7 +62,7 @@ function ProjectCard({
               href={iframeSrc}
               target="_blank"
               rel="noopener noreferrer"
-              className={`relative hover:drop-shadow-[0_0_10px_rgba(139,92,246,0.8)] h-auto p-2 font-normal text-white flex flex-row justify-evenly items-center gap-2 md:gap-1 lg:gap-2 text-xs lg:text-lg cursor-pointer ${toggle?'bg-white/10':'bg-violet-700'} backdrop-blur-sm border-2 border-violet-800 rounded-xl transition-all duration-200`}
+              className={`relative hover:drop-shadow-[0_0_10px_rgba(139,92,246,0.8)] h-auto p-2 font-normal text-white flex flex-row justify-evenly items-center gap-2 md:gap-1 lg:gap-2 text-xs lg:text-lg cursor-pointer ${toggle?'bg-white/10':'bg-violet-700'} backdrop-blur-sm border-2 border-violet-700 rounded-xl transition-all duration-200`}
             >
               <span className="lg:block block md:hidden">{checkLabel}</span>
               <span className="text-lg md:text-xl lg:text-md">

@@ -1,73 +1,76 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/logo.png";
-import { AiFillHome } from "react-icons/ai";
-import { IoIosPerson } from "react-icons/io";
-import { BsSubstack } from "react-icons/bs";
-import { MdWork } from "react-icons/md";
-import { FaEnvelope } from "react-icons/fa"; // Corrected import
 import { HiOutlineHomeModern } from "react-icons/hi2";
 import { BsPerson } from "react-icons/bs";
 import { GoStack } from "react-icons/go";
-import { TfiWorld } from "react-icons/tfi";
 import { BiCodeBlock } from "react-icons/bi";
-import { GrContact } from "react-icons/gr";
 import { LuMessageSquareShare } from "react-icons/lu";
-import { BsEmojiSunglasses } from "react-icons/bs";
+import { IoSunny } from "react-icons/io5";
+import { FaMoon } from "react-icons/fa6";
 
-const Navbar = ({toggle,setToggle}) => {
-  const activeSection = 'haven';
+const Navbar = ({ toggle, setToggle }) => {
   const [width, setWidth] = useState(window.innerWidth);
+  const location = useLocation();
 
   const navLinks = [
-    { name: 'Haven', icon: HiOutlineHomeModern },
-    { name: 'Persona', icon: BsPerson },
-    { name: 'Stack', icon: GoStack },
-    { name: 'URLs', icon: BiCodeBlock },
-    { name: 'Connect', icon: LuMessageSquareShare } // Corrected icon usage
+    { name: "Haven", path: "/", icon: HiOutlineHomeModern },
+    { name: "Persona", path: "/about", icon: BsPerson },
+    { name: "Stack", path: "/skills", icon: GoStack },
+    { name: "URLs", path: "/projects", icon: BiCodeBlock },
+    { name: "Connect", path: "/contact", icon: LuMessageSquareShare }
   ];
 
-  const determineDeviceType = () => {
-    setWidth(window.innerWidth);
-  };
-
   useEffect(() => {
-    determineDeviceType();
-    window.addEventListener('resize', determineDeviceType);
-    return () => {
-      window.removeEventListener('resize', determineDeviceType);
-    };
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className={`fixed z-50 w-screen flex flex-row justify-between items-center ${toggle?'bg-gray-950 border-b-1':'bg-gray-200 border-b-2'} backdrop-blur-sm border-violet-700 p-1`}>
+    <div className={`fixed z-50 w-full flex justify-between items-center ${toggle ? 'bg-gray-950' : 'bg-gray-200'} backdrop-blur-sm border-b-2 border-violet-700 p-2`}>
       <img src={Logo} className="h-10 w-10 brightness-150" alt="Logo" />
-      <div className="z-50 flex lg:flex md:flex flex-row items-center justify-center lg:gap-8 gap-4 mr-2 md:mr-8 lg:mr-8">
+
+      <div className="flex flex-row items-center gap-4 lg:gap-6 mr-2 lg:mr-4">
         {width > 500 ? (
-          navLinks.map((navbar, index) => (
-            <a
+          navLinks.map(({ name, path }, index) => (
+            <Link
               key={index}
-              href={`#${navbar.name.toLowerCase()}`}
-              className={`font-decorative  text-lg decoration-2 ${toggle?'text-gray-200 font-medium':'text-violet-700 font-semibold '} hover:bcolor ${
-                activeSection === navbar.name.toLowerCase()
-                  ? "underline underline-offset-8 decoration-2 decoration-violet-600"
-                  : "bcolor"
+              to={path}
+              className={`tracking-wide font-decorative text-lg ${toggle ? 'text-gray-200 font-light' : 'text-violet-700 font-semibold'} transition-all duration-300 ${
+                location.pathname === path ? "underline decoration-2 decoration-violet-600 underline-offset-8" : ""
               }`}
             >
-              {navbar.name}
-            </a>
+              {name}
+            </Link>
           ))
         ) : (
-          navLinks.map(({ name, icon: Icon }, index) => (
-            <span
-             
-              key={index}
-              className={`text-sm decoration-2`}
-            >
-              <Icon className={`text-gray-200  ${toggle ? 'text-white/80':'text-violet-800'} ${ activeSection === name ? 'bg-gradient-radial from-violet-800 to-90% to-transparent text-3xl':'text-2xl' } transition-text duration-400 delay-100 `} />
-            </span>
+          navLinks.map(({ name, path, icon: Icon }, index) => (
+<Link key={index} to={path}>
+  <Icon
+    className={`transition-all duration-300 ${toggle ? 'text-gray-200' : 'text-violet-800'} 
+      ${location.pathname === path ? 'text-3xl' : 'text-2xl'}`}
+    style={{
+      background: location.pathname === path && toggle
+        ? 'radial-gradient(circle, #6d28d9 0%, transparent 90%)'
+        : '',
+      filter: location.pathname === path && !toggle
+        ? 'drop-shadow(1px 1px 1px #6d28d9)'
+        : ''
+    }}
+  />
+</Link>
+
+
           ))
         )}
-        <span className="text-violet-700 text-2xl cursor-pointer" onClick={()=>{setToggle((pre)=>!pre)}}>{toggle ? <BsEmojiSunglasses /> : <BsEmojiSunglasses />}</span>
+
+        <span
+          className={`${toggle ? "text-gray-200" : "text-violet-700"} text-2xl cursor-pointer`}
+          onClick={() => setToggle(prev => !prev)}
+        >
+          {toggle ? <FaMoon /> : <IoSunny />}
+        </span>
       </div>
     </div>
   );
