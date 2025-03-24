@@ -4,7 +4,7 @@ import { MdOutlineDownload } from "react-icons/md";
 import { IoMdMail } from "react-icons/io";
 import emailjs from 'emailjs-com';
 
-function Contact({ toggle }) {
+function Contact({ toggle, width }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -74,24 +74,37 @@ function Contact({ toggle }) {
     <section
       id="contact"
       className="w-full min-h-screen flex flex-col items-center justify-center text-center pt-18 pb-4 px-2"
-      data-aos="fade-left"
-      data-aos-duration="500"
+      {...(width > 500
+        ? { "data-aos": "fade-left", "data-aos-duration": "500" }
+        : {})}
     >
-      <div className="w-full flex flex-row justify-start items-center lg:px-6">
+      <div className="w-full flex flex-row justify-start items-center lg:px-6"
+      {...(width < 500
+        ? { "data-aos": "fade-left", "data-aos-duration": "700" }
+        : {})}
+      >
         <div className="text-nowrap relative text-2xl lg:text-4xl font-thin font-audiowide bg-clip-text text-transparent bg-gradient-to-r from-violet-300 via-violet-600 to-violet-800 px-1 lg:px-2">
           Let's Connect
         </div>
         <div className="relative w-full h-[2px] lg:h-[3px] bg-gradient-to-r from-violet-700 to-transparent sm:ml-0 lg:ml-2 overflow-hidden rounded-lg"></div>
       </div>
       {/* Contact Section Header */}
-      <div className="mt-4 text-center">
+      <div className="mt-4 text-center"
+      {...(width < 500
+        ? { "data-aos": "fade", "data-aos-duration": `500` }
+        : {})}
+      >
         <p className={`text-md lg:text-lg ${toggle ? 'text-white/75' : 'text-gray-800'}`}>
           Whether you want to collaborate, connect, or just say hi, I’m always open for a chat. Drop a message below or find me on social platforms.
         </p>
       </div>
 
       {/* Content Container */}
-      <div className={`w-[90vw] lg:w-3/4 drop-shadow-[0_0_10px_rgba(139,92,246,0.3)] lg:drop-shadow-[0_0_30px_rgba(139,92,246,0.3)] relative my-12 bg-[conic-gradient(transparent,transparent,#5B21B6,transparent,transparent,#5B21B6,#5B21B6)] rounded-3xl p-[1px] lg:p-[2px]`}>
+      <div className={`w-[90vw] lg:w-3/4 drop-shadow-[0_0_10px_rgba(139,92,246,0.3)] lg:drop-shadow-[0_0_30px_rgba(139,92,246,0.3)] relative my-12 bg-[conic-gradient(transparent,transparent,#5B21B6,transparent,transparent,#5B21B6,#5B21B6)] rounded-3xl p-[1px] lg:p-[2px]`}
+      {...(width < 500
+        ? { "data-aos": "fade-up", "data-aos-duration": `500` }
+        : {})}
+      >
         <div className={`flex flex-col lg:flex-row items-center gap-16 w-full ${toggle ? 'bg-gray-950' : 'bg-gray-200'} backdrop-blur-lg p-8 rounded-3xl shadow-2xl`}>
           {/* Contact Form */}
           <div className="w-full">
@@ -171,7 +184,7 @@ function Contact({ toggle }) {
         </div>
       </div>
 
-      <p className={`text-sm ${toggle ? 'text-gray-400' : 'text-gray-800'} mt-2`}>
+      <p className={`text-sm ${toggle ? 'text-gray-400' : 'text-gray-800'} my-2`}>
         &copy; {new Date().getFullYear()} Jagadeesan. All rights reserved.
       </p>
     </section>
