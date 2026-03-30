@@ -1,0 +1,25 @@
+# Portfolio Robots.txt
+# Allow search engines to crawl and index all pages
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: *.env*
+Disallow: *.log
+Disallow: /admin/
+
+# Specific crawl delay for Google Bot
+User-agent: Googlebot
+Crawl-delay: 0
+
+# Specific crawl delay for Bing Bot
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://iamjagadeesan.dev/sitemap.xml
+
+# Crawl-delay for all other bots
+User-agent: *
+Crawl-delay: 1
+Request-rate: 1/1s

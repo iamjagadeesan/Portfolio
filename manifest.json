@@ -1,0 +1,88 @@
+{
+  "name": "Jagadeesan - Full Stack Developer Portfolio",
+  "short_name": "Jagadeesan",
+  "description": "Interactive portfolio showcasing full-stack development projects, skills, and professional experience",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#06B6D4",
+  "background_color": "#0f172a",
+  "categories": ["portfolio", "developer", "web"],
+  "screenshots": [
+    {
+      "src": "https://avatars.githubusercontent.com/u/170252175?v=4",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://avatars.githubusercontent.com/u/170252175?v=4",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "icons": [
+    {
+      "src": "JDlogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "JDlogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "My Projects",
+      "short_name": "Projects",
+      "description": "View my latest projects and portfolio work",
+      "url": "/?s=projects",
+      "icons": [
+        {
+          "src": "JDlogo.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "My Skills",
+      "short_name": "Skills",
+      "description": "Explore my technical skills and expertise",
+      "url": "/?s=skills",
+      "icons": [
+        {
+          "src": "JDlogo.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Contact Me",
+      "short_name": "Contact",
+      "description": "Get in touch with me",
+      "url": "/?s=contact",
+      "icons": [
+        {
+          "src": "JDlogo.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
