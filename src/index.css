@@ -1,0 +1,103 @@
+@import "tailwindcss";
+/* Material Symbols Setup */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  --color-on-background: #e4e2e4;
+  --color-surface-container: #1f1f21;
+  --color-inverse-primary: #005bc1;
+  --color-on-tertiary-container: #4c1a00;
+  --color-primary-container: #4b8eff;
+  --color-outline-variant: #414755;
+  --color-surface-container-high: #2a2a2c;
+  --color-surface-dim: #131315;
+  --color-tertiary: #ffb595;
+  --color-on-tertiary: #571e00;
+  --color-primary: #adc6ff;
+  --color-outline: #8b90a0;
+  --color-inverse-surface: #e4e2e4;
+  --color-on-secondary: #082f65;
+  --color-on-surface: #e4e2e4;
+  --color-surface-container-lowest: #0e0e10;
+  --color-background: #131315;
+  --color-tertiary-fixed: #ffdbcc;
+  --color-secondary-fixed-dim: #adc6ff;
+  --color-surface-container-highest: #353437;
+  --color-on-secondary-container: #98b5f3;
+  --color-secondary: #adc6ff;
+  --color-primary-fixed-dim: #adc6ff;
+  --color-primary-fixed: #d8e2ff;
+  --color-on-tertiary-fixed: #351000;
+  --color-surface-tint: #adc6ff;
+  --color-on-error-container: #ffdad6;
+  --color-surface-bright: #39393b;
+  --color-tertiary-container: #ef6719;
+  --color-on-primary-fixed: #001a41;
+  --color-inverse-on-surface: #303032;
+  --color-tertiary-fixed-dim: #ffb595;
+  --color-on-primary: #002e69;
+  --color-on-surface-variant: #c1c6d7;
+  --color-surface: #131315;
+  --color-secondary-fixed: #d8e2ff;
+  --color-surface-container-low: #1b1b1d;
+  --color-error: #ffb4ab;
+  --color-on-primary-container: #00285c;
+  --color-on-tertiary-fixed-variant: #7c2e00;
+  --color-on-primary-fixed-variant: #004493;
+  --color-secondary-container: #26467d;
+  --color-surface-variant: #353437;
+  --color-on-error: #690005;
+  --color-on-secondary-fixed-variant: #26467d;
+  --color-error-container: #93000a;
+  --color-on-secondary-fixed: #001a41;
+
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background font-body h-screen w-screen overflow-hidden selection:bg-primary/30;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-surface/75 backdrop-blur-[32px] saturate-[180%];
+  }
+  
+  .traffic-light {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}

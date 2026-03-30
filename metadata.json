@@ -1,0 +1,130 @@
+{
+  "personal": {
+    "name": "Jagadeesan",
+    "title": "Full Stack Developer | UI/UX Designer | Problem Solver",
+    "bio": "Passionate full-stack developer specializing in modern web technologies. Creating high-performance, user-centric applications with React, Node.js, and cloud technologies. Experienced in building scalable e-commerce platforms and innovative web solutions.",
+    "profileImage": "https://avatars.githubusercontent.com/u/170252175?v=4",
+    "email": "jagadeesan@example.com"
+  },
+  "social": {
+    "github": "https://github.com/iamjagadeesan",
+    "linkedin": "https://linkedin.com/in/jagadeesan",
+    "twitter": "https://twitter.com/jagadeesan",
+    "portfolio": "https://iamjagadeesan.dev"
+  },
+  "seo": {
+    "title": "Jagadeesan | Full Stack Developer & Designer",
+    "description": "Portfolio of Jagadeesan - Full Stack Developer specializing in React, Node.js, and modern web technologies. Showcasing projects, skills, and professional experience.",
+    "keywords": "Jagadeesan, Full Stack Developer, React Developer, Node.js, JavaScript, TypeScript, Web Developer, UI/UX Designer, Portfolio, Projects, Skills",
+    "author": "Jagadeesan",
+    "ogTitle": "Jagadeesan's Developer Portfolio",
+    "ogDescription": "Explore my portfolio featuring full-stack development projects, modern tech stack, and professional experience in building scalable web applications.",
+    "ogImage": "https://avatars.githubusercontent.com/u/170252175?v=4",
+    "ogUrl": "https://iamjagadeesan.dev",
+    "twitterHandle": "@jagadeesan",
+    "canonicalUrl": "https://iamjagadeesan.dev"
+  },
+  "technologies": {
+    "frontend": ["React 19", "TypeScript", "Tailwind CSS", "Motion/Framer", "HTML5", "CSS3"],
+    "backend": ["Node.js", "Express.js", "Python", "Java"],
+    "database": ["MongoDB", "SQL", "SQLite"],
+    "languages": ["JavaScript", "TypeScript", "Python", "Java", "C++", "C"],
+    "designTools": ["Figma", "Framer"],
+    "deployment": ["GitHub Pages", "Vercel", "Netlify"]
+  },
+  "experience": {
+    "current": {
+      "role": "Full Stack Developer",
+      "company": "Southern Gourmet Bites",
+      "period": "2025 - Present",
+      "description": "Leading full-stack development for e-commerce chocolate brand website. Implementing modern UI/UX patterns and high-performance solutions."
+    },
+    "previous": [
+      {
+        "role": "MERN Stack Intern",
+        "company": "Triple One Solutions",
+        "period": "June 2025 - Present",
+        "description": "Developed full-stack applications using MongoDB, Express, React, and Node.js. Focused on frontend and backend integration."
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": "bontemps",
+      "name": "Bontemps",
+      "description": "High-performance e-commerce pastry website built with modern web technologies",
+      "technologies": ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+      "category": "E-commerce",
+      "link": "https://bontemps.in",
+      "featured": true
+    },
+    {
+      "id": "sgb",
+      "name": "Southern Gourmet Bites",
+      "description": "Brand website for premium bean-to-bar chocolate company",
+      "technologies": ["React", "TypeScript", "Tailwind CSS"],
+      "category": "Brand Website",
+      "link": "https://southerngourmetbites.com",
+      "featured": true
+    },
+    {
+      "id": "movies-buff",
+      "name": "Movies Buff",
+      "description": "Movie discovery platform with search, details, and watchlist functionality",
+      "technologies": ["React", "JavaScript", "CSS"],
+      "category": "Entertainment",
+      "link": "https://iamjagadeesan.github.io/MoviesBuff/",
+      "featured": false
+    },
+    {
+      "id": "weather-check",
+      "name": "Weather Check",
+      "description": "Real-time weather application for global location lookup",
+      "technologies": ["React", "JavaScript", "Weather API"],
+      "category": "Utility",
+      "link": "https://iamjagadeesan.github.io/Weathercheck/",
+      "featured": false
+    },
+    {
+      "id": "system-signup",
+      "name": "System Signup",
+      "description": "Terminal-based login and signup system using C programming",
+      "technologies": ["C", "Systems Programming"],
+      "category": "Systems",
+      "link": "https://github.com/iamjagadeesan/C_Projects",
+      "featured": false
+    }
+  ],
+  "skills": {
+    "fullStack": ["MERN Stack", "Full Stack Development", "REST APIs", "Database Design"],
+    "frontend": ["React", "TypeScript", "Tailwind CSS", "Animation & Motion", "Responsive Design"],
+    "backend": ["Node.js", "Express.js", "MongoDB", "SQL"],
+    "languages": ["JavaScript", "TypeScript", "Python", "Java", "C++", "C"],
+    "design": ["UI/UX Design", "Figma", "Framer", "Web Design", "Prototyping"],
+    "softSkills": ["Problem Solving", "Agile Development", "Team Leadership", "Technical Writing", "Communication"]
+  },
+  "certifications": [
+    {
+      "title": "Full Stack Web Development",
+      "issuer": "Professional Development",
+      "year": 2025
+    },
+    {
+      "title": "React Advanced Patterns",
+      "issuer": "Online Course",
+      "year": 2024
+    }
+  ],
+  "theme": {
+    "name": "Portfolio OS",
+    "description": "Desktop OS-inspired portfolio interface with macOS-like window management",
+    "primaryColor": "#61DAFB",
+    "accentColor": "#06B6D4",
+    "darkMode": true
+  },
+  "analytics": {
+    "enabled": true,
+    "trackingId": "YOUR_ANALYTICS_ID"
+  },
+  "requestFramePermissions": []
+}
