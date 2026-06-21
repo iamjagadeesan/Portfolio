@@ -11,6 +11,8 @@ import { IoIosPerson } from "react-icons/io";
 import { PiHardDrivesFill } from "react-icons/pi";
 import { MdAutoDelete } from "react-icons/md";
 
+import desktopBG from '/desktop.jpg';
+
 import { TopBar } from "./components/Shared/TopBar";
 import { Dock } from "./components/Shared/Dock";
 import { Window } from "./components/Shared/Window";
@@ -180,7 +182,8 @@ export default function App() {
   };
 
   return (
-    <div className="relative w-full h-dvh overflow-hidden font-body">
+    <div className="relative w-full h-dvh overflow-hidden font-body"
+    >
       <AnimatePresence mode="wait">
         {isLoading && (
           <LoadingScreen onComplete={() => setIsLoading(false)} />
@@ -196,7 +199,9 @@ export default function App() {
             <div className="relative w-full h-full bg-background">
           
           {/* Wallpaper */}
-          <div className="fixed inset-0 z-0 bg-gradient-to-br from-indigo-950 to-blue-900"></div>
+          <div className="fixed inset-0 z-0 bg-cover bg-right"
+            style={{ backgroundImage:`url(${desktopBG})` }}
+          ></div>
 
           <TopBar />
 
@@ -251,14 +256,16 @@ export default function App() {
           <div className="relative w-screen h-full bg-background overflow-hidden shadow-2xl flex flex-col">
             
             {/* Wallpaper */}
-            <div className="absolute inset-0 z-0">
-              <div className="absolute inset-0 bg-linear-to-tr from-[#001a41] via-[#131315] to-on-tertiary opacity-80" />
-              <img
+            <div className="absolute inset-0 z-0 bg-cover bg-center"
+              style={{ backgroundImage:`url(${desktopBG})` }}
+            >
+              <div className="absolute inset-0 bg-black opacity-30" />
+              {/*<img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmkHzDSTuLHd8RqBb6Qiomd5F_AiOiaNfaQ8obIxu5DDbLtdDlySBjdlZgiStzP3gPCqFcgd6ur1tkZUl7i2298yfPCNX5ppuiBsv1fYn7avruDx2T_u0ugzpV_wTtwQreLHbnSYtYgH9bYJsaQMWzNlqobwj1TUmwtNUdRPOlwFPmlBT7-VtnnZrFTXiYx2gKjeTDosvIN0-incu63AzzPTWFb1CXyfEx66ZetRXJh1WcqvxtrhbGqC9PgDrKAvO31C5RHSTdE2A"
                 alt="Mobile Wallpaper"
                 className="w-full h-full object-cover mix-blend-overlay"
                 referrerPolicy="no-referrer"
-              />
+              />*/}
             </div>
 
             <MobileTopBar />
