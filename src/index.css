@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+  --font-handwriting: "Caveat", cursive;
+
+  --color-brand-gold: #DFB13E;
+  --color-brand-gold-dark: #B8860B;
+  --color-brand-gold-light: #FDF8ED;
+  --color-brand-tan: #DFC598;
+  --color-brand-accent: #C59A4E;
+  --color-brand-dark: #111215;
+  --color-brand-surface: #FAF8F5;
+  --color-brand-border: #EAE6DF;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+}
+
+.card-gradient-1 {
+  background: radial-gradient(circle at 70% 60%, rgba(203, 213, 225, 0.45) 0%, rgba(241, 245, 249, 0.8) 55%, #f8fafc 100%);
+}
+
+.card-gradient-2 {
+  background: radial-gradient(circle at 65% 55%, rgba(254, 215, 170, 0.5) 0%, rgba(255, 247, 237, 0.8) 55%, #fffaf5 100%);
+}
+
+.card-gradient-3 {
+  background: radial-gradient(circle at 70% 60%, rgba(219, 234, 254, 0.45) 0%, rgba(240, 244, 255, 0.8) 55%, #f8faff 100%);
+}
+
+.smooth-shadow {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.smooth-shadow:hover {
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.07);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #A87920 0%, #DFB13E 50%, #C49126 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-card-glow {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(223, 177, 62, 0.18), 0 0 0 1px rgba(223, 177, 62, 0.35);
+}
+
+.handwriting-note {
+  font-family: var(--font-handwriting);
+  transform: rotate(-7deg);
+}
+
+.fade-bottom-mask {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+}
+
+.floating-code-badge {
+  box-shadow: 0 14px 28px -6px rgba(245, 158, 11, 0.22), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* Orbiting Celestial Animations */
+@keyframes orbitClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitCounterClockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes counterRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes counterRotateRev {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.orbit-cw-22 {
+  animation: orbitClockwise 22s linear infinite;
+}
+.orbit-ccw-28 {
+  animation: orbitCounterClockwise 28s linear infinite;
+}
+.orbit-cw-34 {
+  animation: orbitClockwise 34s linear infinite;
+}
+.orbit-ccw-40 {
+  animation: orbitCounterClockwise 40s linear infinite;
+}
+.orbit-cw-46 {
+  animation: orbitClockwise 46s linear infinite;
+}
+
+.counter-cw-22 {
+  animation: counterRotate 22s linear infinite;
+}
+.counter-ccw-28 {
+  animation: counterRotateRev 28s linear infinite;
+}
+.counter-cw-34 {
+  animation: counterRotate 34s linear infinite;
+}
+.counter-ccw-40 {
+  animation: counterRotateRev 40s linear infinite;
+}
+.counter-cw-46 {
+  animation: counterRotate 46s linear infinite;
+}
+
+.orbit-container:hover .orbit-track,
+.orbit-container:hover .orbit-badge {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-cw-22,
+  .orbit-ccw-28,
+  .orbit-cw-34,
+  .orbit-ccw-40,
+  .orbit-cw-46,
+  .counter-cw-22,
+  .counter-ccw-28,
+  .counter-cw-34,
+  .counter-ccw-40,
+  .counter-cw-46 {
+    animation: none;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
