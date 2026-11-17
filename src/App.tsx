@@ -11,12 +11,26 @@ import { ContactPage } from './pages/ContactPage';
 import { CvPage } from './pages/CvPage';
 import { EASE_OUT_EXPO } from './components/ui/MotionPrimitives';
 
+const RAW_BASE = import.meta.env.BASE_URL || '/';
+const BASE_PREFIX = RAW_BASE === '/' ? '' : RAW_BASE.replace(/\/+$/, '');
+
 function parseRouteFromLocation(): RoutePath {
-  const path = window.location.pathname;
+  let path = window.location.pathname;
+  if (BASE_PREFIX && path.startsWith(BASE_PREFIX)) {
+    path = path.slice(BASE_PREFIX.length) || '/';
+  }
+  if (path.length > 1 && path.endsWith('/')) {
+    path = path.slice(0, -1);
+  }
   if (path === '/work' || path === '/about' || path === '/contact' || path === '/cv') {
     return path;
   }
   return '/';
+}
+
+function toBrowserPath(route: RoutePath): string {
+  if (!BASE_PREFIX) return route;
+  return route === '/' ? `${BASE_PREFIX}/` : `${BASE_PREFIX}${route}`;
 }
 
 export default function App() {
@@ -46,10 +60,11 @@ export default function App() {
   }, []);
 
   const navigate = useCallback((path: RoutePath, hash?: string) => {
-    if (window.location.pathname !== path) {
-      window.history.pushState({}, '', hash ? `${path}#${hash}` : path);
-      setCurrentPath(path);
+    const browserPath = toBrowserPath(path);
+    if (window.location.pathname !== browserPath) {
+      window.history.pushState({}, '', hash ? `${browserPath}#${hash}` : browserPath);
     }
+    setCurrentPath(path);
 
     if (hash) {
       setTimeout(() => {

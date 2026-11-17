@@ -1,13 +1,22 @@
 import { CvData, ExperienceItem, ProjectItem, ServiceItem } from '../types/portfolio';
 
+const BASE_URL = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+export function withBase(path: string): string {
+  const clean = path.startsWith('/') ? path.slice(1) : path;
+  return `${BASE_URL}${clean}`;
+}
+
 export const BRAND_ASSETS = {
   logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDngKcS4wT80YvevuI-NFARDzFkIXwN3Y2c3aOUpBjKjHrdu-QGrzVgJnYVvf0ZBl8u8DKs4zN2BPGDgvRnP-ZoYz_DcyHRxVObHV4Ajno25FgPfcinoyc2cuWnPqSmWmb2Dxa9L6lI2brnkzi7IAaTR2tIRTyx6Eqhs834BIhgFdDkzDPQfy8F9dTYc3hKC3j2j_5Qg1F_s5n0L5hRFo4RzuTgJNDhFcYyxvkZGBjV98kBJWqO5qaF',
   monogram:
     'https://lh3.googleusercontent.com/aida-public/AB6AXuD0KXaIyF1iUiw-OxENZpx2r-cNFUnDLTkSVhy_swZnrTO-rmpYt29nI1d879Xid1iC6_u2ZTDVAwTgKYI7xm4W3I9j1TqhYd7Ocn8qVFHfyyvWgMCnpyhNgJq1JQ5gVe8UxyZv2ov-XyuO1OBk-KM1rg8qW088j0XrbVvP8TxIDRFi1ovQM8-BeM7bzOPp3vSvpzdDpP_CPqoaZf3F8JMsMGIzLr9nAPpPUw0SVYEM0iO0CqN-SDTO',
-  heroPortrait: '/Images/home/my-profile.png',
-  aboutIllustration: '/Images/home/full_stack_developer_3d.png',
-  contactLaptop: '/Images/contact/laptop-contact.png',
-  resumePdf: '/Jagadeesan_Resume.pdf',
+  heroPortrait: withBase('/Images/home/my-profile.png'),
+  aboutIllustration: withBase('/Images/home/full_stack_developer_3d.png'),
+  contactLaptop: withBase('/Images/contact/laptop-contact.png'),
+  resumePdf: withBase('/Jagadeesan_Resume.pdf'),
 };
 
 export const PROFILE = {
@@ -61,8 +70,8 @@ export const PROJECTS: ProjectItem[] = [
     cardGradientClass: 'card-gradient-1',
     cardBorderClass: 'border-[#E5E7EB]',
     mockupBgClass: 'bg-[#F8F5EE] border-[#EAE3D2]',
-    cardPreviewImage: '/Images/work/bontemps_image.png',
-    caseStudyImage: '/Images/work/bontemps_image.png',
+    cardPreviewImage: withBase('/Images/work/bontemps_image.png'),
+    caseStudyImage: withBase('/Images/work/bontemps_image.png'),
     deliverables: [
       'Centralized Multi-Store Fulfillment',
       'Batch Inventory & Custom Cake Configurators',
@@ -113,8 +122,8 @@ export const PROJECTS: ProjectItem[] = [
     cardGradientClass: 'card-gradient-2',
     cardBorderClass: 'border-[#F3E8D8]',
     mockupBgClass: 'bg-[#F5F2EB] border-[#EAE3D2]',
-    cardPreviewImage: '/Images/work/chokofi_image.png',
-    caseStudyImage: '/Images/work/chokofi_image.png',
+    cardPreviewImage: withBase('/Images/work/chokofi_image.png'),
+    caseStudyImage: withBase('/Images/work/chokofi_image.png'),
     deliverables: [
       'Customer Storefront & Admin Dashboards',
       'Orders, Payments, Shipping & Discounts APIs',
@@ -154,8 +163,8 @@ export const PROJECTS: ProjectItem[] = [
     cardGradientClass: 'card-gradient-3',
     cardBorderClass: 'border-[#E0E7FF]',
     mockupBgClass: 'bg-[#F6F3EB] border-[#EAE3D2]',
-    cardPreviewImage: '/Images/work/SGB_image.png',
-    caseStudyImage: '/Images/work/SGB_image.png',
+    cardPreviewImage: withBase('/Images/work/SGB_image.png'),
+    caseStudyImage: withBase('/Images/work/SGB_image.png'),
     deliverables: [
       'Responsive Product & Brand Showcase',
       'Structured Content Architecture',
@@ -179,7 +188,7 @@ export const SERVICES: ServiceItem[] = [
     targetFilter: 'all',
     cardGradientClass: 'card-gradient-3',
     cardBorderClass: 'border-[#E4EAF5]',
-    image: '/Images/services/frontend.png',
+    image: withBase('/Images/services/frontend.png'),
     variant: 'frontend',
   },
   {
@@ -192,7 +201,7 @@ export const SERVICES: ServiceItem[] = [
     targetFilter: 'all',
     cardGradientClass: 'card-gradient-3',
     cardBorderClass: 'border-[#E4EAF5]',
-    image: '/Images/services/backend.png',
+    image: withBase('/Images/services/backend.png'),
     variant: 'backend',
   },
   {
@@ -205,7 +214,7 @@ export const SERVICES: ServiceItem[] = [
     targetFilter: 'all',
     cardGradientClass: 'card-gradient-3',
     cardBorderClass: 'border-[#E4EAF5]',
-    image: '/Images/services/deployment.png',
+    image: withBase('/Images/services/deployment.png'),
     variant: 'integrate',
   },
 ];
