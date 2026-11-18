@@ -10,7 +10,7 @@ export function withBase(path: string): string {
 }
 
 export const BRAND_ASSETS = {
-  logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDngKcS4wT80YvevuI-NFARDzFkIXwN3Y2c3aOUpBjKjHrdu-QGrzVgJnYVvf0ZBl8u8DKs4zN2BPGDgvRnP-ZoYz_DcyHRxVObHV4Ajno25FgPfcinoyc2cuWnPqSmWmb2Dxa9L6lI2brnkzi7IAaTR2tIRTyx6Eqhs834BIhgFdDkzDPQfy8F9dTYc3hKC3j2j_5Qg1F_s5n0L5hRFo4RzuTgJNDhFcYyxvkZGBjV98kBJWqO5qaF',
+  logo: withBase('/Images/logo.png'),
   monogram:
     'https://lh3.googleusercontent.com/aida-public/AB6AXuD0KXaIyF1iUiw-OxENZpx2r-cNFUnDLTkSVhy_swZnrTO-rmpYt29nI1d879Xid1iC6_u2ZTDVAwTgKYI7xm4W3I9j1TqhYd7Ocn8qVFHfyyvWgMCnpyhNgJq1JQ5gVe8UxyZv2ov-XyuO1OBk-KM1rg8qW088j0XrbVvP8TxIDRFi1ovQM8-BeM7bzOPp3vSvpzdDpP_CPqoaZf3F8JMsMGIzLr9nAPpPUw0SVYEM0iO0CqN-SDTO',
   heroPortrait: withBase('/Images/home/my-profile.png'),
