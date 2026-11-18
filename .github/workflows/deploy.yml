@@ -38,6 +38,9 @@ jobs:
         run: npm run build
         env:
           VITE_BASE_PATH: /Portfolio/
+          VITE_EMAILJS_SERVICE_ID: service_o5ehgwq
+          VITE_EMAILJS_TEMPLATE_ID: template_c77sm17
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
 
       - name: Configure SPA 404 fallback
         run: cp dist/index.html dist/404.html

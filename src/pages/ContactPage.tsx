@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   FiArrowUpRight,
   FiCheck,
   FiCopy,
   FiGlobe,
+  FiLoader,
   FiMail,
   FiMapPin,
   FiMessageSquare,
@@ -26,6 +28,10 @@ import {
   StaggerMountGroup,
 } from '../components/ui/MotionPrimitives';
 
+const EMAILJS_SERVICE_ID = 'service_o5ehgwq';
+const EMAILJS_TEMPLATE_ID = 'template_c77sm17';
+const EMAILJS_PUBLIC_KEY = '_0LnKI3k8y1N7F0pR';
+
 interface ContactPageProps {
   onNavigate: (path: RoutePath) => void;
 }
@@ -37,6 +43,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
     subject: '',
     message: '',
   });
+  const [isSending, setIsSending] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [submittedData, setSubmittedData] = useState<ContactSubmission | null>(null);
   const [copiedField, setCopiedField] = useState<'email' | 'phone' | null>(null);
@@ -51,28 +58,78 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSending) return;
     setErrorMessage(null);
 
-    if (
-      !formData.name.trim() ||
-      !formData.email.trim() ||
-      !formData.subject.trim() ||
-      !formData.message.trim()
-    ) {
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedSubject = formData.subject.trim();
+    const trimmedMessage = formData.message.trim();
+
+    if (!trimmedName || !trimmedEmail || !trimmedSubject || !trimmedMessage) {
       setErrorMessage('Please complete all required fields before sending.');
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(formData.email.trim())) {
+    if (!emailPattern.test(trimmedEmail)) {
       setErrorMessage('Please enter a valid email address.');
       return;
     }
 
-    setSubmittedData({ ...formData });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    if (!EMAILJS_PUBLIC_KEY.trim()) {
+      setErrorMessage(
+        `Email service public key (VITE_EMAILJS_PUBLIC_KEY) is not configured. Please email ${PROFILE.email} directly.`
+      );
+      return;
+    }
+
+    setIsSending(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: trimmedName,
+          from_name: trimmedName,
+          email: trimmedEmail,
+          from_email: trimmedEmail,
+          reply_to: trimmedEmail,
+          subject: trimmedSubject,
+          title: trimmedSubject,
+          message: trimmedMessage,
+          to_name: PROFILE.name,
+          to_email: PROFILE.email,
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY.trim(),
+        }
+      );
+
+      setSubmittedData({
+        name: trimmedName,
+        email: trimmedEmail,
+        subject: trimmedSubject,
+        message: trimmedMessage,
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      const details =
+        typeof err === 'object' && err !== null && 'text' in err
+          ? String((err as { text?: unknown }).text || '')
+          : err instanceof Error
+            ? err.message
+            : '';
+      setErrorMessage(
+        details
+          ? `Unable to send your message (${details}). Please try again or email ${PROFILE.email}.`
+          : `Unable to send your message right now. Please try again or email ${PROFILE.email}.`
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -235,10 +292,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   <FiCheck className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900">
-                  Thank you, {submittedData.name}
+                  Message Sent — Thank You, {submittedData.name}!
                 </h3>
                 <p className="text-sm text-neutral-600 leading-relaxed">
-                  Your message regarding <strong className="text-neutral-900">&ldquo;{submittedData.subject}&rdquo;</strong> has been recorded. For immediate correspondence, you can also open your mail client directly.
+                  Your message regarding <strong className="text-neutral-900">&ldquo;{submittedData.subject}&rdquo;</strong> has been sent to {PROFILE.name}. I&apos;ll get back to you at <span className="font-medium text-neutral-800">{submittedData.email}</span> soon.
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-2">
                   <a
@@ -289,12 +346,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     </div>
                     <input
                       id="contact-name"
+                      name="name"
                       type="text"
                       required
+                      disabled={isSending}
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your Name *"
-                      className="w-full pl-12 pr-5 py-4 rounded-full bg-white border border-neutral-200/90 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all shadow-sm"
+                      className="w-full pl-12 pr-5 py-4 rounded-full bg-white border border-neutral-200/90 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all shadow-sm disabled:opacity-60"
                     />
                   </div>
 
@@ -307,12 +366,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     </div>
                     <input
                       id="contact-email"
+                      name="email"
                       type="email"
                       required
+                      disabled={isSending}
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="Your Email *"
-                      className="w-full pl-12 pr-5 py-4 rounded-full bg-white border border-neutral-200/90 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all shadow-sm"
+                      className="w-full pl-12 pr-5 py-4 rounded-full bg-white border border-neutral-200/90 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all shadow-sm disabled:opacity-60"
                     />
                   </div>
                 </div>
@@ -326,12 +387,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   </div>
                   <input
                     id="contact-subject"
+                    name="subject"
                     type="text"
                     required
+                    disabled={isSending}
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Subject *"
-                    className="w-full pl-12 pr-5 py-4 rounded-full bg-white border border-neutral-200/90 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all shadow-sm"
+                    className="w-full pl-12 pr-5 py-4 rounded-full bg-white border border-neutral-200/90 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all shadow-sm disabled:opacity-60"
                   />
                 </div>
 
@@ -344,22 +407,34 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   </div>
                   <textarea
                     id="contact-message"
+                    name="message"
                     rows={6}
                     required
+                    disabled={isSending}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Your Message *"
-                    className="w-full pl-12 pr-5 py-4 rounded-3xl bg-white border border-neutral-200/90 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all shadow-sm resize-y"
+                    className="w-full pl-12 pr-5 py-4 rounded-3xl bg-white border border-neutral-200/90 text-sm text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all shadow-sm resize-y disabled:opacity-60"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-3 bg-[#111215] hover:bg-neutral-800 text-white font-semibold px-8 py-4 rounded-full transition duration-200 shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-900"
+                    disabled={isSending}
+                    className="inline-flex items-center gap-3 bg-[#111215] hover:bg-neutral-800 disabled:bg-neutral-400 disabled:cursor-not-allowed text-white font-semibold px-8 py-4 rounded-full transition duration-200 shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-900"
                   >
-                    <span>Send Message</span>
-                    <FiSend className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    {isSending ? (
+                      <>
+                        <FiLoader className="w-4 h-4 animate-spin" aria-hidden="true" />
+                        <span>Sending Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <FiSend className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </>
+                    )}
                   </button>
                 </div>
               </motion.form>
