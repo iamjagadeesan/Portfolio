@@ -1,8 +1,9 @@
-name: Deploy portfolio to GitHub Pages
+name: Deploy Portfolio to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -12,33 +13,36 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build portfolio
+      - name: Build production bundle for GitHub Pages
         run: npm run build
+        env:
+          VITE_BASE_PATH: /Portfolio/
+
+      - name: Configure SPA 404 fallback
+        run: cp dist/index.html dist/404.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: ./dist
 
   deploy:
     environment:

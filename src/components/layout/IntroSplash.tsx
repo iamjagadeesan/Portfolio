@@ -55,7 +55,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ introDone }) => {
                 ease: EASE_OUT_EXPO,
                 layout: { duration: 0.72, ease: EASE_OUT_EXPO },
               }}
-              className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-white border border-[#EAE6DF] p-5 flex items-center justify-center overflow-hidden shadow-[0_24px_60px_-14px_rgba(17,18,21,0.18),0_0_38px_rgba(255,255,255,0.95)] ring-1 ring-inset ring-white/90"
+              className="relative w-28 h-28 sm:w-32 sm:h-32 p-5 flex items-center justify-center"
             >
               {/* Moving White Inner Light Glow */}
               <motion.div
@@ -63,7 +63,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ introDone }) => {
                 initial={{ x: '-90%' }}
                 animate={{ x: '90%' }}
                 transition={{ duration: 1.05, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.95)_0%,_rgba(253,246,226,0.45)_45%,_transparent_75%)]"
+                className="pointer-events-none rotate-130 absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.95)_0%,_rgba(253,246,226,0.45)_45%,_transparent_75%)]"
               />
 
               <ResilientImage
