@@ -16,7 +16,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onNavigateWork,
 }) => {
   return (
-    <main className="w-full max-w-[1240px] mx-auto px-6 lg:px-10 pt-10 md:pt-14 pb-20">
+    <main className="w-full max-w-[1240px] mx-auto px-6 lg:px-10 pt-10 md:pt-14 pb-20 overflow-x-hidden">
       <HeroSection onNavigate={onNavigate} />
       <ExploreWorkSection onNavigate={onNavigate} />
       <AboutSection onNavigate={onNavigate} />
